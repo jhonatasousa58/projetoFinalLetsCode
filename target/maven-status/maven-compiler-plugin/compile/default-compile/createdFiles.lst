@@ -1,0 +1,12 @@
+service\ClienteService.class
+model\Venda.class
+app\App.class
+service\impl\ClienteServiceImpl.class
+service\ProdutoService.class
+controller\ProdutoController.class
+model\Vendendor.class
+repository\ProdutoRepository.class
+repository\ClienteRepository.class
+model\Cliente.class
+model\Produto.class
+service\impl\ProdutoServiceImpl.class
