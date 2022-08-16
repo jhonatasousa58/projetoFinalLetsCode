@@ -2,10 +2,7 @@ package com.example.projetoFinalLetsCode.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -21,5 +18,7 @@ public class Venda {
     private List<Produto> produtos;
     private BigDecimal valorTotal;
     private BigDecimal desconto;
+    @ManyToOne(targetEntity = Cliente.class, fetch = FetchType.EAGER)
+    private Cliente cliente;
 
 }
