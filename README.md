@@ -5,12 +5,12 @@
 * Upload de imagem.
 * Estoque dos produtos.
 * Venda dos produtos e atualização do estoque e valores em conta.
-* Login, Logout e perfil.
 * Conta com os Valores das vendas.
 
 # Vou tentar fazer mas não garanto nada kkkk
 * Comprovante de cada venda.
 * Carrinho de compras para fazer a venda de varios produtos de uma vez.
+* Login, Logout e perfil.
 
 ## Diagrama
 

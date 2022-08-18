@@ -12,13 +12,16 @@ import java.util.List;
 public class Venda {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDateTime dataVenda;
+    private String dataVenda;
     @ManyToMany(targetEntity = Produto.class, fetch = FetchType.EAGER)
     private List<Produto> produtos;
     private BigDecimal valorTotal;
     private BigDecimal desconto;
     @ManyToOne(targetEntity = Cliente.class, fetch = FetchType.EAGER)
     private Cliente cliente;
+    @ManyToOne(targetEntity = Vendedor.class, fetch = FetchType.EAGER)
+    private Vendedor vendedor;
 
 }

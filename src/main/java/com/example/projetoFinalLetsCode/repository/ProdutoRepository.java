@@ -16,6 +16,9 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
     @Query("select p from Produto p where p.nome = :nome order by p.id")
     List<Produto> findProduto(@Param("nome") String nome);
 
+    @Query("select p from Produto p where p.id = :id order by p.id")
+    List<Produto> findProdutoByid(@Param("id") Long id);
+
     @Query(value = "select * from produto p where p.nome = :nome order by p.id", nativeQuery = true)
     List<Produto> findProdutoNative(@Param("nome") String nome);
 }

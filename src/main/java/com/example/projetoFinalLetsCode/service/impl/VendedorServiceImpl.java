@@ -1,8 +1,8 @@
 package com.example.projetoFinalLetsCode.service.impl;
 
-import com.example.projetoFinalLetsCode.model.Cliente;
-import com.example.projetoFinalLetsCode.repository.ClienteRepository;
-import com.example.projetoFinalLetsCode.service.ClienteService;
+import com.example.projetoFinalLetsCode.model.Vendedor;
+import com.example.projetoFinalLetsCode.repository.VendedorRepository;
+import com.example.projetoFinalLetsCode.service.VendedorService;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
@@ -11,30 +11,30 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ClienteServiceImpl implements ClienteService {
-    final ClienteRepository clienteRepository;
+public class VendedorServiceImpl implements VendedorService {
+    final VendedorRepository vendedorRepository;
 
-    public ClienteServiceImpl(ClienteRepository clienteRepository) {
-        this.clienteRepository = clienteRepository;
+    public VendedorServiceImpl(VendedorRepository vendedorRepository) {
+        this.vendedorRepository = vendedorRepository;
     }
 
     @Override
     @Transactional
-    public Cliente salvar(Cliente cliente) {
-        return clienteRepository.save(cliente);
+    public Vendedor salvar(Vendedor vendedor) {
+        return vendedorRepository.save(vendedor);
     }
 
     @Override
     @Transactional
     public void excluir(Long idProduto) {
-        clienteRepository.deleteById(idProduto);
+        vendedorRepository.deleteById(idProduto);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Page<Cliente> listar(String filtro, Pageable pageable) {
+    public Page<Vendedor> listar(String filtro, Pageable pageable) {
 
-        final Cliente produtoFiltro = new Cliente();
+        final Vendedor produtoFiltro = new Vendedor();
         produtoFiltro.setNome(filtro);
 
         final ExampleMatcher exampleMatcher =
@@ -43,16 +43,16 @@ public class ClienteServiceImpl implements ClienteService {
                         .withIgnoreCase()
                         .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
 
-        final Example<Cliente> produtoExample = Example.of(produtoFiltro, exampleMatcher);
+        final Example<Vendedor> produtoExample = Example.of(produtoFiltro, exampleMatcher);
 
-        return clienteRepository.findAll(produtoExample, pageable);
+        return vendedorRepository.findAll(produtoExample, pageable);
 
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Cliente getId(Long id) {
-        return clienteRepository.findById(id)
+    public Vendedor getId(Long id) {
+        return vendedorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("ID nao encontrado"));
     }
 }
